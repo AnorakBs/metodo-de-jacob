@@ -8,8 +8,11 @@ int convergir(float x1,float y1,float z1, float x2, float y2, float z2, float x3
 	return 1
 	;}
 }
-
+// SOMAR +1 NA QUANTIDADE DE EXECUTAR NOVAMENTE OU SEJA 3 EXECUTAR NOVAMENTE = X4 =(//////////////)^t
 int main(int argc, char** argv) {
+	int ju = 0;
+	do{
+	ju = 0;
 	float x1,x2,x3,resul1;
 	float y1,y2,y3,resul2;
 	float z1,z2,z3,resul3;
@@ -85,23 +88,7 @@ int main(int argc, char** argv) {
 		
 	
 		// 2
-		aux1 = (resul1 - y1 * x0[1] - z1 * x0[2])/x1;
-		aux2 = (resul2 - x2 * x0[0] - z2 * x0[2])/y2;
-		aux3 = (resul3 - x3 * x0[0] - y3 * x0[1])/z3;
-		
-		x0[0]= aux1;
-		x0[1]= aux2;
-		x0[2]= aux3;
-		
-		if(x0[0] - aux4 < aprox && x0[1] - aux5 < aprox && x0[2] - aux6 < aprox){
-			cout << "X = " << x0[0] << " " << x0[1] << " " << x0[2] << " \n";
-		}else cout << "executar novamente \n";
-		
-		
-		aux4 = x0[0];
-		aux5 = x0[1];
-		aux6 = x0[2];
-		// 3
+		for(int i =0; i < 10 ; i++){
 		aux1 = (resul1 - y1 * x0[1] - z1 * x0[2])/x1;
 		aux2 = (resul2 - x2 * x0[0] - z2 * x0[2])/y2;
 		aux3 = (resul3 - x3 * x0[0] - y3 * x0[1])/z3;
@@ -117,74 +104,11 @@ int main(int argc, char** argv) {
 		aux4 = x0[0];
 		aux5 = x0[1];
 		aux6 = x0[2];
-		// 4
-		aux1 = (resul1 - y1 * x0[1] - z1 * x0[2])/x1;
-		aux2 = (resul2 - x2 * x0[0] - z2 * x0[2])/y2;
-		aux3 = (resul3 - x3 * x0[0] - y3 * x0[1])/z3;
-		
-		x0[0]= aux1;
-		x0[1]= aux2;
-		x0[2]= aux3;
-		
-		if(x0[0] - aux4 < aprox && x0[1] - aux5 < aprox && x0[2] - aux6 < aprox){
-			cout << "X = " << x0[0] << " " << x0[1] << " " << x0[2] << " \n";
-		}else cout << "executar novamente \n";
-		
-		aux4 = x0[0];
-		aux5 = x0[1];
-		aux6 = x0[2];
-		//5
-		aux1 = (resul1 - y1 * x0[1] - z1 * x0[2])/x1;
-		aux2 = (resul2 - x2 * x0[0] - z2 * x0[2])/y2;
-		aux3 = (resul3 - x3 * x0[0] - y3 * x0[1])/z3;
-		
-		x0[0]= aux1;
-		x0[1]= aux2;
-		x0[2]= aux3;
-		
-		if(x0[0] - aux4 < aprox && x0[1] - aux5 < aprox && x0[2] - aux6 < aprox){
-			cout << "X = " << x0[0] << " " << x0[1] << " " << x0[2] << " \n";
-		}else cout << "executar novamente \n";
-		
-		aux4 = x0[0];
-		aux5 = x0[1];
-		aux6 = x0[2];
-		//6 
-		aux1 = (resul1 - y1 * x0[1] - z1 * x0[2])/x1;
-		aux2 = (resul2 - x2 * x0[0] - z2 * x0[2])/y2;
-		aux3 = (resul3 - x3 * x0[0] - y3 * x0[1])/z3;
-		
-		x0[0]= aux1;
-		x0[1]= aux2;
-		x0[2]= aux3;
-		
-		if(x0[0] - aux4 < aprox && x0[1] - aux5 < aprox && x0[2] - aux6 < aprox){
-			cout << "X = " << x0[0] << " " << x0[1] << " " << x0[2] << " \n";
-		}else cout << "executar novamente \n";
-		
-		aux4 = x0[0];
-		aux5 = x0[1];
-		aux6 = x0[2];
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+}
+		cout << "Digite 1 para executar dnv:";
+		cin >> ju;
+		}while(ju == 1);
+
+
 	return 0;
 }
