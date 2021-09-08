@@ -5,7 +5,8 @@ using namespace std;
 
 int convergir(float x1,float y1,float z1, float x2, float y2, float z2, float x3,float y3, float z3){
 	if(x1 > y1 + z1 && y2 > x2 + z2 && z3 > x3 + y3){
-	return 1;}
+	return 1
+	;}
 }
 
 int main(int argc, char** argv) {
@@ -13,7 +14,7 @@ int main(int argc, char** argv) {
 	float y1,y2,y3,resul2;
 	float z1,z2,z3,resul3;
 	float aprox;
-	float aux1,aux2,aux3,aux4,aux5,aux6;
+	float aux1,aux2,aux3,aux4 = 0,aux5 = 0,aux6 = 0;
 	
 	float x0[3] = {0,0,0};
 	 
@@ -64,84 +65,126 @@ int main(int argc, char** argv) {
 	if(convergir(x1,y1,z1,x2,y2,z2,x3,y3,z3) == 1){
 		cout << "Converge\n";
 		}else cout << "N converge\n";
+		//--1
+		aux1 = resul1/x1;
+		aux2 = resul2/y2;
+		aux3 = resul3/z3;
+		
+		x0[0]= aux1;
+		x0[1]= aux2;
+		x0[2]= aux3;
+		
+		if(x0[0] - aux4 < aprox && x0[1] - aux5 < aprox && x0[2] - aux6 < aprox){
+			cout << "X = " << x0[0] << "" << x0[1] << "" << x0[2] << "";
+		}else cout << "executar novamente \n";
+		
+		
+		aux4 = aux1;
+		aux5 = aux2; 
+		aux6 = aux3;
+		
 	
-	aux1 = (resul1 - y1 * x0[1] - z1 * x0[2])/4;
-	aux2 = (resul2 - x2 * x0[0] - z2 * x0[2])/5;
-	aux3 = (resul3 - x3 * x0[0] - y3 * x0[1])/4;
-	
-	x0[0] = aux1;
-	x0[1] = aux2;
-	x0[2] = aux3;	
-	
-	aux4 = aux1;
-	aux5 = aux2;
-	aux6 = aux3;
-	
-	if(x0[0] > aprox && x0[1] > aprox && x0[2]> aprox){ // 1
-		cout << "X = " << x0[0] <<" " << x0[1] << " " << x0[2];
-	}else cout << "Precisa executar novamente\n";
-	
-	cout<< x0[0] << " " << x0[1] << " "<< x0[2] << " \n"; 
-//------------------------	
-	aux1 = (resul1 - y1 * x0[1] - z1 * x0[2])/4;
-	aux2 = (resul2 - x2 * x0[0] - z2 * x0[2])/5;
-	aux3 = (resul3 - x3 * x0[0] - y3 * x0[1])/4;
-	
-	x0[0] = aux1;
-	x0[1] = aux2;
-	x0[2] = aux3;
-
-
-	if(x0[0] - aux4 < aprox && x0[1] - aux5 < aprox && x0[2] - aux6 < aprox){ // 2
-		cout << "X = " << x0[0] <<" " << x0[1] << " " << x0[2];
-	}else cout << "Precisa executar novamente\n";
-	
-	aux4 = aux1;
-	aux5 = aux2;
-	aux6 = aux3;
-	
-	cout<< x0[0] << " " << x0[1] << " "<< x0[2] << " \n"; 
-	
-	aux1 = (resul1 - y1 * x0[1] - z1 * x0[2])/4;
-	aux2 = (resul2 - x2 * x0[0] - z2 * x0[2])/5;
-	aux3 = (resul3 - x3 * x0[0] - y3 * x0[1])/4;
-	
-	x0[0] = aux1;
-	x0[1] = aux2;
-	x0[2] = aux3;
-	
-	if(x0[0] - aux4 < aprox && x0[1] - aux5 < aprox && x0[2] - aux6 < aprox){ // 3
-		cout << "X = " << x0[0] <<" " << x0[1] << " " << x0[2];
-	}else cout << "Precisa executar novamente\n";
-	
-	aux4 = aux1;
-	aux5 = aux2;
-	aux6 = aux3;
-	
-	
-	cout<< x0[0] << " " << x0[1] << " "<< x0[2] << " \n"; 
-	
-	aux1 = (resul1 - y1 * x0[1] - z1 * x0[2])/4;
-	aux2 = (resul2 - x2 * x0[0] - z2 * x0[2])/5;
-	aux3 = (resul3 - x3 * x0[0] - y3 * x0[1])/4;
-	
-	x0[0] = aux1;
-	x0[1] = aux2;
-	x0[2] = aux3;
-	
-	if(x0[0] - aux4 < aprox && x0[1] - aux5 < aprox && x0[2] - aux6 < aprox){ // 4
-		cout << "X = " << x0[0] <<" " << x0[1] << " " << x0[2];
-	}else cout << "Precisa executar novamente\n";
-	
-	aux4 = aux1;
-	aux5 = aux2;
-	aux6 = aux3;
-	
-
-	
-	
-	
-	
-	
+		// 2
+		aux1 = (resul1 - y1 * x0[1] - z1 * x0[2])/x1;
+		aux2 = (resul2 - x2 * x0[0] - z2 * x0[2])/y2;
+		aux3 = (resul3 - x3 * x0[0] - y3 * x0[1])/z3;
+		
+		x0[0]= aux1;
+		x0[1]= aux2;
+		x0[2]= aux3;
+		
+		if(x0[0] - aux4 < aprox && x0[1] - aux5 < aprox && x0[2] - aux6 < aprox){
+			cout << "X = " << x0[0] << " " << x0[1] << " " << x0[2] << " \n";
+		}else cout << "executar novamente \n";
+		
+		
+		aux4 = x0[0];
+		aux5 = x0[1];
+		aux6 = x0[2];
+		// 3
+		aux1 = (resul1 - y1 * x0[1] - z1 * x0[2])/x1;
+		aux2 = (resul2 - x2 * x0[0] - z2 * x0[2])/y2;
+		aux3 = (resul3 - x3 * x0[0] - y3 * x0[1])/z3;
+		
+		x0[0]= aux1;
+		x0[1]= aux2;
+		x0[2]= aux3;
+		
+		if(x0[0] - aux4 < aprox && x0[1] - aux5 < aprox && x0[2] - aux6 < aprox){
+			cout << "X = " << x0[0] << " " << x0[1] << " " << x0[2] << " \n";
+		}else cout << "executar novamente \n";
+		
+		aux4 = x0[0];
+		aux5 = x0[1];
+		aux6 = x0[2];
+		// 4
+		aux1 = (resul1 - y1 * x0[1] - z1 * x0[2])/x1;
+		aux2 = (resul2 - x2 * x0[0] - z2 * x0[2])/y2;
+		aux3 = (resul3 - x3 * x0[0] - y3 * x0[1])/z3;
+		
+		x0[0]= aux1;
+		x0[1]= aux2;
+		x0[2]= aux3;
+		
+		if(x0[0] - aux4 < aprox && x0[1] - aux5 < aprox && x0[2] - aux6 < aprox){
+			cout << "X = " << x0[0] << " " << x0[1] << " " << x0[2] << " \n";
+		}else cout << "executar novamente \n";
+		
+		aux4 = x0[0];
+		aux5 = x0[1];
+		aux6 = x0[2];
+		//5
+		aux1 = (resul1 - y1 * x0[1] - z1 * x0[2])/x1;
+		aux2 = (resul2 - x2 * x0[0] - z2 * x0[2])/y2;
+		aux3 = (resul3 - x3 * x0[0] - y3 * x0[1])/z3;
+		
+		x0[0]= aux1;
+		x0[1]= aux2;
+		x0[2]= aux3;
+		
+		if(x0[0] - aux4 < aprox && x0[1] - aux5 < aprox && x0[2] - aux6 < aprox){
+			cout << "X = " << x0[0] << " " << x0[1] << " " << x0[2] << " \n";
+		}else cout << "executar novamente \n";
+		
+		aux4 = x0[0];
+		aux5 = x0[1];
+		aux6 = x0[2];
+		//6 
+		aux1 = (resul1 - y1 * x0[1] - z1 * x0[2])/x1;
+		aux2 = (resul2 - x2 * x0[0] - z2 * x0[2])/y2;
+		aux3 = (resul3 - x3 * x0[0] - y3 * x0[1])/z3;
+		
+		x0[0]= aux1;
+		x0[1]= aux2;
+		x0[2]= aux3;
+		
+		if(x0[0] - aux4 < aprox && x0[1] - aux5 < aprox && x0[2] - aux6 < aprox){
+			cout << "X = " << x0[0] << " " << x0[1] << " " << x0[2] << " \n";
+		}else cout << "executar novamente \n";
+		
+		aux4 = x0[0];
+		aux5 = x0[1];
+		aux6 = x0[2];
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	return 0;
 }
